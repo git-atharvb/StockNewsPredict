@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinSent - Market Trend Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="app-layout">
+        <aside class="market-sidebar glass">
+            <div class="sidebar-widget">
+                <h2>Live Markets</h2>
+                <ul id="market-indices" class="sidebar-list">
+                    <li style="color: #64748b; font-size: 0.9rem;">Loading...</li>
+                </ul>
+            </div>
+            <div class="sidebar-widget">
+                <h2>Trending Stocks</h2>
+                <ul id="trending-stocks" class="sidebar-list">
+                    <li style="color: #64748b; font-size: 0.9rem;">Loading...</li>
+                </ul>
+            </div>
+            <div class="sidebar-widget">
+                <h2>Sector Performance</h2>
+                <ul id="sector-perf" class="sidebar-list">
+                    <li style="color: #64748b; font-size: 0.9rem;">Loading...</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo-area">
+                    <h1><i class="fa-solid fa-chart-line"></i> FinSent</h1>
+                    <p>Financial Sentiment Analysis for Market Trend Prediction</p>
+                </div>
+                <button id="theme-toggle" class="theme-toggle-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <section class="search-section">
+            <div class="search-box">
+                <select id="market-select" class="market-select">
+                    <option value="">US (NASDAQ / NYSE)</option>
+                    <option value=".NS">India (NSE)</option>
+                    <option value=".BO">India (BSE)</option>
+                    <option value=".L">UK (LSE)</option>
+                    <option value=".TO">Canada (TSX)</option>
+                    <option value=".AX">Australia (ASX)</option>
+                    <option value=".DE">Germany (XETRA)</option>
+                    <option value=".T">Japan (TSE)</option>
+                    <option value=".SS">China (SSE)</option>
+                </select>
+                <input type="text" id="ticker-input" placeholder="Enter Ticker (e.g., AAPL, RELIANCE)" autocomplete="off">
+                <button id="analyze-btn">Analyze Sentiment</button>
+            </div>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing financial news using FinBERT...</p>
+            </div>
+            <div id="error-message" class="hidden error"></div>
+            
+            <div id="volatility-warning" class="hidden warning-banner">
+                ⚠️ HIGH VOLATILITY WARNING: Excessive negative news detected. Proceed with caution.
+            </div>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <div class="dashboard-grid">
+                <div class="card summary-card glass">
+                    <h2>Overall Sentiment</h2>
+                    <div id="overall-sentiment" class="sentiment-badge large">NEUTRAL</div>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <span class="stat-label">Positive</span>
+                            <span id="stat-pos" class="stat-value pos">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Neutral</span>
+                            <span id="stat-neu" class="stat-value neu">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Negative</span>
+                            <span id="stat-neg" class="stat-value neg">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card chart-card glass">
+                    <h2>30-Day Price Trend</h2>
+                    <div class="chart-container" style="position: relative; flex: 1; width: 100%; min-height: 250px;">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card social-card glass">
+                    <h2>Reddit Sentiment (r/wallstreetbets)</h2>
+                    <div id="reddit-sentiment" class="sentiment-badge large">NEUTRAL</div>
+                    <p style="color:#94a3b8; font-size:0.9rem;">Mentions in last week: <span id="reddit-mentions" style="color:white; font-weight:bold;">0</span></p>
+                </div>
+            </div>
+
+            <!-- V2 Features: Institutional Dashboard -->
+            <div class="dashboard-grid v2-dashboard" style="grid-template-columns: 1fr; gap: 30px;">
+                
+                <!-- Fundamental Ratios -->
+                <div class="card glass">
+                    <h2>Fundamental Analysis</h2>
+                    <div class="fundamentals-grid" id="fundamentals-grid">
+                        <div class="fun-item"><span>Market Cap</span><strong id="f-mcap">-</strong></div>
+                        <div class="fun-item"><span>P/E Ratio</span><strong id="f-pe">-</strong></div>
+                        <div class="fun-item"><span>P/B Ratio</span><strong id="f-pb">-</strong></div>
+                        <div class="fun-item"><span>Debt to Equity</span><strong id="f-de">-</strong></div>
+                        <div class="fun-item"><span>ROE</span><strong id="f-roe">-</strong></div>
+                        <div class="fun-item"><span>Analyst Rec</span><strong id="f-rec" class="highlight">-</strong></div>
+                        <div class="fun-item"><span>Technical Trend</span><strong id="f-trend">-</strong></div>
+                    </div>
+                </div>
+
+                <!-- SWOT Analysis -->
+                <div class="card glass">
+                    <h2><i class="fa-solid fa-robot"></i> AI SWOT Analysis</h2>
+                    <div class="swot-grid">
+                        <div class="swot-box s"><h3><i class="fa-solid fa-arrow-trend-up"></i> Strengths</h3><ul id="swot-s"></ul></div>
+                        <div class="swot-box w"><h3><i class="fa-solid fa-arrow-trend-down"></i> Weaknesses</h3><ul id="swot-w"></ul></div>
+                        <div class="swot-box o"><h3><i class="fa-solid fa-lightbulb"></i> Opportunities</h3><ul id="swot-o"></ul></div>
+                        <div class="swot-box t"><h3><i class="fa-solid fa-triangle-exclamation"></i> Threats</h3><ul id="swot-t"></ul></div>
+                    </div>
+                </div>
+
+                <!-- Peer Comparison -->
+                <div class="card glass">
+                    <h2><i class="fa-solid fa-users"></i> Peer Comparison</h2>
+                    <table class="peer-table">
+                        <thead>
+                            <tr>
+                                <th>Ticker</th>
+                                <th>Market Cap</th>
+                                <th>P/E Ratio</th>
+                                <th>Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody id="peer-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="news-section">
+                <h3>Recent Headlines Analyzed</h3>
+                <div id="news-list" class="news-list">
+                    <!-- News items will be injected here -->
+                </div>
+            </div>
+        </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

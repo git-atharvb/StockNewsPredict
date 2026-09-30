@@ -1,0 +1,225 @@
+===========================================================
+Stock Ticker Examples for Market Sentiment Dashboard
+===========================================================
+NOTE: When using these on the website, select the corresponding 
+market from the dropdown and type ONLY the Ticker exactly as shown. 
+The website will automatically add the correct suffix (e.g. .NS, .DE).
+
+-----------------------------------------------------------
+1. US (NASDAQ / NYSE) - No Suffix
+-----------------------------------------------------------
+AAPL       Apple
+MSFT       Microsoft
+AMZN       Amazon
+NVDA       NVIDIA
+GOOGL      Alphabet (Google)
+META       Meta Platforms (Facebook)
+TSLA       Tesla
+BRK-B      Berkshire Hathaway
+LLY        Eli Lilly
+V          Visa
+UNH        UnitedHealth Group
+XOM        ExxonMobil
+WMT        Walmart
+JPM        JPMorgan Chase
+JNJ        Johnson & Johnson
+MA         Mastercard
+PG         Procter & Gamble
+HD         Home Depot
+CVX        Chevron
+MRK        Merck & Co.
+
+-----------------------------------------------------------
+2. India (NSE) - National Stock Exchange (Suffix: .NS)
+-----------------------------------------------------------
+RELIANCE   Reliance Industries
+TCS        Tata Consultancy Services
+HDFCBANK   HDFC Bank
+ICICIBANK  ICICI Bank
+INFY       Infosys
+ITC        ITC Limited
+SBIN       State Bank of India
+BHARTIARTL Bharti Airtel
+HINDUNILVR Hindustan Unilever
+LT         Larsen & Toubro
+BAJFINANCE Bajaj Finance
+HCLTECH    HCL Technologies
+ASIANPAINT Asian Paints
+MARUTI     Maruti Suzuki
+SUNPHARMA  Sun Pharmaceutical
+TITAN      Titan Company
+ULTRACEMCO UltraTech Cement
+TATASTEEL  Tata Steel
+KOTAKBANK  Kotak Mahindra Bank
+NTPC       NTPC Limited
+
+-----------------------------------------------------------
+3. India (BSE) - Bombay Stock Exchange (Suffix: .BO)
+-----------------------------------------------------------
+(Note: BSE uses 6-digit numeric codes instead of letters)
+500325     Reliance Industries
+532540     Tata Consultancy Services
+500180     HDFC Bank
+532174     ICICI Bank
+500209     Infosys
+500875     ITC Limited
+500112     State Bank of India
+532454     Bharti Airtel
+500696     Hindustan Unilever
+500510     Larsen & Toubro
+500034     Bajaj Finance
+532281     HCL Technologies
+500820     Asian Paints
+532500     Maruti Suzuki
+524715     Sun Pharmaceutical
+500114     Titan Company
+532538     UltraTech Cement
+500470     Tata Steel
+500247     Kotak Mahindra Bank
+532555     NTPC Limited
+
+-----------------------------------------------------------
+4. UK (LSE) - London Stock Exchange (Suffix: .L)
+-----------------------------------------------------------
+AZN        AstraZeneca
+SHEL       Shell
+HSBA       HSBC Holdings
+ULVR       Unilever
+BP         BP plc
+GSK        GSK plc
+RIO        Rio Tinto
+DGE        Diageo
+BATS       British American Tobacco
+GLEN       Glencore
+REL        RELX
+BA         BAE Systems
+CPG        Compass Group
+NG         National Grid
+LSEG       London Stock Exchange Group
+AAL        Anglo American
+BARC       Barclays
+LLOY       Lloyds Banking Group
+NWG        NatWest Group
+PRU        Prudential
+
+-----------------------------------------------------------
+5. Canada (TSX) - Toronto Stock Exchange (Suffix: .TO)
+-----------------------------------------------------------
+RY         Royal Bank of Canada
+TD         Toronto-Dominion Bank
+ENB        Enbridge
+CNR        Canadian National Railway
+CP         Canadian Pacific Kansas City
+SHOP       Shopify
+CNQ        Canadian Natural Resources
+BMO        Bank of Montreal
+BNS        Bank of Nova Scotia
+CSU        Constellation Software
+ATD        Alimentation Couche-Tard
+TRP        TC Energy
+CM         Canadian Imperial Bank of Commerce
+BCE        BCE Inc.
+MFC        Manulife Financial
+NTR        Nutrien
+SLF        Sun Life Financial
+WCN        Waste Connections
+IFC        Intact Financial
+FTS        Fortis
+
+-----------------------------------------------------------
+6. Australia (ASX) - Australian Securities Exchange (Suffix: .AX)
+-----------------------------------------------------------
+BHP        BHP Group
+CBA        Commonwealth Bank of Australia
+CSL        CSL Limited
+NAB        National Australia Bank
+WBC        Westpac Banking
+ANZ        ANZ Group
+MQG        Macquarie Group
+WES        Wesfarmers
+FMG        Fortescue Metals
+TLS        Telstra
+TCL        Transurban Group
+WOW        Woolworths Group
+RIO        Rio Tinto (ASX listing)
+GMG        Goodman Group
+WDS        Woodside Energy
+STO        Santos
+QBE        QBE Insurance
+BXB        Brambles
+ALL        Aristocrat Leisure
+COH        Cochlear
+
+-----------------------------------------------------------
+7. Germany (XETRA) (Suffix: .DE)
+-----------------------------------------------------------
+SAP        SAP SE
+SIE        Siemens
+ALV        Allianz
+DTE        Deutsche Telekom
+AIR        Airbus
+VOW3       Volkswagen (Preferred Shares)
+MBG        Mercedes-Benz Group
+BMW        Bayerische Motoren Werke (BMW)
+MUV2       Munich Re
+DHL        DHL Group
+BAS        BASF
+INF        Infineon Technologies
+BAYN       Bayer
+DB1        Deutsche Börse
+RWE        RWE AG
+DBK        Deutsche Bank
+EOAN       E.ON
+HEN3       Henkel (Preferred Shares)
+BEI        Beiersdorf
+MRK        Merck KGaA
+
+-----------------------------------------------------------
+8. Japan (TSE) - Tokyo Stock Exchange (Suffix: .T)
+-----------------------------------------------------------
+(Note: TSE uses 4-digit numeric codes)
+7203       Toyota Motor
+8306       Mitsubishi UFJ Financial
+6861       Keyence
+6758       Sony Group
+9432       Nippon Telegraph and Telephone (NTT)
+9984       SoftBank Group
+8035       Tokyo Electron
+8058       Mitsubishi Corp
+8316       Sumitomo Mitsui Financial
+9983       Fast Retailing (Uniqlo)
+7974       Nintendo
+6902       Denso
+8002       Marubeni
+8001       Itochu
+7267       Honda Motor
+8031       Mitsui & Co
+4063       Shin-Etsu Chemical
+6501       Hitachi
+4568       Daiichi Sankyo
+6098       Recruit Holdings
+
+-----------------------------------------------------------
+9. China (SSE) - Shanghai Stock Exchange (Suffix: .SS)
+-----------------------------------------------------------
+(Note: SSE uses 6-digit numeric codes)
+600519     Kweichow Moutai
+601398     Industrial and Commercial Bank of China
+601939     China Construction Bank
+601288     Agricultural Bank of China
+601988     Bank of China
+601857     PetroChina
+601628     China Life Insurance
+601088     China Shenhua Energy
+600036     China Merchants Bank
+601318     Ping An Insurance
+600900     China Yangtze Power
+600028     China Petroleum & Chemical (Sinopec)
+601111     Air China
+601668     China State Construction Engineering
+600276     Jiangsu Hengrui Medicine
+603288     Foshan Haitian Flavouring
+600030     CITIC Securities
+600104     SAIC Motor
+601818     China Everbright Bank
+601899     Zijin Mining
